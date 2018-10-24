@@ -18,7 +18,7 @@ namespace PartyInvites.Controllers
         {
             _partyInvitesDbContext.GuestResponses.Add(guestResponse);
             _partyInvitesDbContext.SaveChanges();
-            return RedirectToAction(nameof(Thanks), new {Name = guestResponse.Name, WillAttend = guestResponse.WillAttend});
+            return RedirectToAction("Thanks", new {guestResponse.Name, guestResponse.WillAttend});
         }
 
         public IActionResult ListResponses() => View(_partyInvitesDbContext.GuestResponses.OrderByDescending(r => r.WillAttend));
