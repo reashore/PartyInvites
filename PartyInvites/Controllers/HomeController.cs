@@ -21,6 +21,8 @@ namespace PartyInvites.Controllers
             return RedirectToAction("Thanks", new {guestResponse.Name, guestResponse.WillAttend});
         }
 
+        public IActionResult Thanks(GuestResponse guestResponse) => View(guestResponse);
+
         public IActionResult ListResponses() => View(_partyInvitesDbContext.GuestResponses.OrderByDescending(r => r.WillAttend));
     }
 }
