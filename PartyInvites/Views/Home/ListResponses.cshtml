@@ -8,15 +8,15 @@
         <div class="col font-weight-bold">Email</div>
         <div class="col font-weight-bold">Phone</div>
         <div class="col font-weight-bold">Attending</div>
-
-        @foreach (GuestResponse guestResponse in Model)
-        {
-            <div class="row p-1">
-                <div class="col">@guestResponse.Name</div>
-                <div class="col">@guestResponse.Email</div>
-                <div class="col">@guestResponse.Phone</div>
-                <div class="col">@(guestResponse.WillAttend == true ? "Yes" : "No")</div>
-            </div>
-        }
     </div>
+
+    @foreach (GuestResponse guestResponse in Model)
+    {
+        <div class="row p-1">
+            <div class="col">@guestResponse.Name</div>
+            <div class="col">@guestResponse.Email</div>
+            <div class="col">@guestResponse.Phone</div>
+            <div class="col">@(guestResponse.WillAttend == true ? "Yes" : "No")</div>
+        </div>
+    }
 </div>
