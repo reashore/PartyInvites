@@ -17,7 +17,11 @@ namespace PartyInvites
         {
             services.AddMvc();
             string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<PartyInvitesDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<PartyInvitesDbContext>(options =>
+            {
+                options.EnableSensitiveDataLogging();
+                options.UseSqlServer(connectionString);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
